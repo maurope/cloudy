@@ -2,7 +2,7 @@ Cloudy
 -----
 
 
-To start clone the repository in a file::
+To start, clone the repository using git::
 
 	git clone git@github.com:maurope/cloudy.git
 
