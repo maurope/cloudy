@@ -2,7 +2,9 @@ Cloudy
 -----
 
 
-To start, clone the repository using git::
+Setup
+-----
+Clone the repository::
 
 	git clone git@github.com:maurope/cloudy.git
 
@@ -13,6 +15,10 @@ Then, start a new environment using python version 3.12::
 Initialize this environment::
 
 	source venv/bin/activate
+
+
+Requirements
+-----
 
 Install requirements.txt and download spacy models for english and spanish::
 
