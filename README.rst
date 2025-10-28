@@ -22,5 +22,12 @@ Requirements
 
 Install requirements.txt and download spacy models for english and spanish::
 
-	pip install -r requirements.txt && python3 -m spacy download en_core_web_sm -m spacy download es_core_news_sm && python3 
+	# Install dependencies
+	pip install -r requirements.txt
 
+	# Download spaCy models
+	python3 -m spacy download en_core_web_sm
+	python3 -m spacy download es_core_news_sm
+
+	# Download NLTK data
+	python3 -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
