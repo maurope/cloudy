@@ -10,12 +10,29 @@ import pandas as pd
 import string
 import spacy
 import nltk
+import matplotlib.pyplot as plt
 from datetime import datetime
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from wordcloud import WordCloud, STOPWORDS
 from collections import Counter
-import matplotlib.pyplot as plt
+
+
+#-----------------------
+# DATA LOAD
+#-----------------------
+
+if len(sys.argv) < 2:
+    print("❌ Use: python cloudy.py <your_data.txt>")
+    sys.exit(1)
+
+path = sys.argv[1]
+
+if not os.path.exists(path):
+    print(f"❌ The file '{path}' do not exist.")
+    sys.exit(1)
+
+print(f"📂 Selected file: {path}")
 
 
 #-----------------------
@@ -83,21 +100,7 @@ else:  # default 'en'
 
 
 
-#-----------------------
-# DATA LOAD
-#-----------------------
 
-if len(sys.argv) < 2:
-    print("❌ Use: python cloudy.py <your_data.csv>")
-    sys.exit(1)
-
-csv_path = sys.argv[1]
-
-if not os.path.exists(csv_path):
-    print(f"❌ The file '{csv_path}' do not exist.")
-    sys.exit(1)
-
-print(f"📂 Selected file: {csv_path}")
 
 #-----------------------
 # OUTPUT FOLDER
@@ -111,7 +114,7 @@ else:
     
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-basename = os.path.splitext(os.path.basename(csv_path))[0]   # nombre del archivo sin ruta ni extensión
+basename = os.path.splitext(os.path.basename(path))[0]   # nombre del archivo sin ruta ni extensión
 output_dir =  os.path.join("output", f"{timestamp}_{basename}")
 os.makedirs(output_dir, exist_ok=True)
 print(f"📁 Run folder created: {output_dir}")
@@ -126,8 +129,8 @@ top_chart_path = os.path.join(output_dir, f"{basename}_{lang_suffix}_top_10.jpg"
 
 
 
-#original_data = pd.read_csv(csv_path, header=None, sep='\n', engine='python')
-with open(csv_path, 'r', encoding='utf-8') as f:
+
+with open(path, 'r', encoding='utf-8') as f:
     lines = f.read().splitlines()
 
 original_data = pd.DataFrame(lines, columns=['text'])
@@ -231,5 +234,12 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.savefig(top_chart_path, dpi=300, bbox_inches="tight")
 plt.close()
+
+
+#-----------------------
+# TEXT CLASIFICATION
+#-----------------------
+
+
 
 print('Successful execution!')
