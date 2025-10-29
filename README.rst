@@ -64,7 +64,8 @@ Once the script finishes running, your results will be saved in the **output** f
 All generated analyses and visualizations will be stored within this directory.
 
 
-Outputs figures::
+Outputs figures
+-----
 
 
 
