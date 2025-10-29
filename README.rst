@@ -7,8 +7,11 @@ Cloudy is a Python tool for analyzing survey text responses and identifying the 
 It generates a word cloud, a word frequency table, and a bar chart showing the top 10 most common words.
 The script is interactive and supports both English and Spanish.
 
-Input data should be provided as a .txt file, with one phrase per line.
+Input data should be provided as a .txt file, with one phrase per line and without headers.
 Make sure all dependencies are installed before running the script, and always activate your virtual environment.
+
+`Instrucciones en Español <https://github.com/maurope/cloudy/blob/main/README_es.rst>`_
+
 
 
 Setup
@@ -22,7 +25,7 @@ Then, start a new virtual environment using python version 3.12::
 	python3.12 -m venv venv
 
 Initialize virtual environment::
-
+git 
 	source venv/bin/activate
 
 
