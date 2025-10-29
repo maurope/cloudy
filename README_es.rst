@@ -56,3 +56,12 @@ Escribe **en** para **inglés** o **es** para **español**, y presiona **Enter**
 
 Una vez que el script termine de ejecutarse, tus resultados se guardarán en la carpeta **output**.
 Todos los análisis y visualizaciones generados se almacenarán dentro de este directorio.
+
+
+Resultados
+-----
+
+.. image:: ./output/20251029_123349_biofilia_español/biofilia_español_es.jpg
+
+.. image:: ./output/20251029_123349_biofilia_español/biofilia_español_es_top_10.jpg
+
