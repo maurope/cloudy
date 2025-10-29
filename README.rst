@@ -62,3 +62,13 @@ Type **en** for **English** or **es** for **Spanish**, and press **Enter**
 
 Once the script finishes running, your results will be saved in the **output** folder.
 All generated analyses and visualizations will be stored within this directory.
+
+
+Outputs figures::
+
+
+
+image:: ./output/20251029_123330_biofilia_english/biofilia_english_en.jpg
+
+
+image:: ./output/20251029_123330_biofilia_english/biofilia_english_en_top_10.jpg
