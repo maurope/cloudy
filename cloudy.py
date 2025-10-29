@@ -1,3 +1,6 @@
+# Written by Mauricio Peñuela 
+# https://github.com/maurope/cloudy
+
 import warnings
 warnings.filterwarnings('ignore')
 import os
@@ -123,15 +126,21 @@ top_chart_path = os.path.join(output_dir, f"{basename}_{lang_suffix}_top_10.jpg"
 
 
 
-original_data = pd.read_csv(csv_path, header=None)
+#original_data = pd.read_csv(csv_path, header=None, sep='\n', engine='python')
+with open(csv_path, 'r', encoding='utf-8') as f:
+    lines = f.read().splitlines()
+
+original_data = pd.DataFrame(lines, columns=['text'])
+
 original_data.columns = ["text"]
 
 filter_data = original_data.copy()
 
 print("Null rows:", filter_data.isnull().sum()[0])
 
+#-----------------------
 #FUNCTIONS
-#----------
+#-----------------------
 
 def clean(text):
     # Convert to lowercase
@@ -167,9 +176,6 @@ filter_data["clean_text"] = filter_data["text"].apply(clean)
 
 
 
-
-
-
 def clean_with_stopwords_and_lemmatization(text):
     # Procesar el texto usando spaCy
     doc = nlp(text)
@@ -185,8 +191,9 @@ filter_data["lemmatized_clean_text"] = filter_data["clean_text"].apply(clean_wit
 filter_data[['text','clean_text', 'lemmatized_clean_text']].head(3)
 
 
-
+#-----------------------
 # WORD CLOUD GENERATION
+#-----------------------
 
 text = " ".join(review for review in filter_data["lemmatized_clean_text"])
 wordcloud = WordCloud(stopwords=STOPWORDS, background_color="white", width=800, height=400).generate(text)
@@ -197,29 +204,24 @@ plt.axis("off")
 
 plt.savefig(wordcloud_path, format="jpg", dpi=300, bbox_inches="tight")
 
-
+#-----------------------
 # WORD COUNT
+#-----------------------
 
 all_words = " ".join(filter_data["lemmatized_clean_text"]).split()
 word_frequencies = Counter(all_words)
-
-#word_frequencies_df = pd.DataFrame.from_dict(word_frequencies, orient='index', columns=['frequency'])
-#word_frequencies_df = word_frequencies_df.sort_values(by='frequency', ascending=False)
-#word_frequencies_df = word_frequencies_df.reset_index().rename(columns={'index': 'words'})
-#word_frequencies_df.to_csv(word_frequencies_path, index=False, encoding="utf-8")
-
 word_frequencies_df = pd.DataFrame.from_dict(word_frequencies, orient='index', columns=[labels['frequency_col']])
 word_frequencies_df = word_frequencies_df.sort_values(by=labels['frequency_col'], ascending=False)
 word_frequencies_df = word_frequencies_df.reset_index().rename(columns={'index': labels['words_col']})
 word_frequencies_df.to_csv(word_frequencies_path, index=False, encoding="utf-8")
 
+
+#-----------------------
 # WORDS FREQUENCY PLOT
-#top_10_words = word_frequencies_df.head(10)
+#-----------------------
+
 colors = ['darkgreen'] * 5 + ['lightblue'] * 5
-
-
 top_words = word_frequencies_df.head(10)
-
 plt.figure(figsize=(12,6))
 plt.bar(top_words[labels['words_col']], top_words[labels['frequency_col']], color=colors)
 plt.xlabel(labels['xlabel'])
