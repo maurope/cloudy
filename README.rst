@@ -68,7 +68,7 @@ Outputs figures::
 
 
 
-image:: ./output/20251029_123330_biofilia_english/biofilia_english_en.jpg
+.. image:: ./output/20251029_123330_biofilia_english/biofilia_english_en.jpg
 
 
-image:: ./output/20251029_123330_biofilia_english/biofilia_english_en_top_10.jpg
+.. image:: ./output/20251029_123330_biofilia_english/biofilia_english_en_top_10.jpg
