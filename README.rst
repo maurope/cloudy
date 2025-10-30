@@ -10,6 +10,8 @@ The script is interactive and supports both **English** and **Spanish**.
 Input data should be provided as a **.txt** file, with **one phrase per line** and **without headers**.
 Make sure all dependencies are installed before running the script, and always **activate your virtual environment**.
 
+If you find the installation process difficult `Use Cloudy using Colab  <https://colab.research.google.com/drive/1rk9aQY_qj_k7P9ox0Dlp9ygpsqKenAtp?usp=sharing>`_
+
 `Instrucciones en Español <https://github.com/maurope/cloudy/blob/main/README_es.rst>`_
 
 

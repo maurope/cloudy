@@ -64,4 +64,3 @@ Resultados
 .. image:: ./output/20251029_123349_biofilia_español/biofilia_español_es.jpg
 
 .. image:: ./output/20251029_123349_biofilia_español/biofilia_español_es_top_10.jpg
-
