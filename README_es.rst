@@ -9,6 +9,10 @@ El script es **interactivo** y admite tanto **inglés** como **español**.
 Los datos de entrada deben proporcionarse en un archivo **.txt**, con **una frase por línea** y **sin encabezados**.
 Asegúrate de haber instalado todas las dependencias antes de ejecutar el script y de **activar siempre tu entorno virtual**.
 
+Si encuentras difícil el proceso de instalación `Usa Cloudy a través de Colab  <https://colab.research.google.com/drive/1_wznBikrOSbb_AAT0Pz__HyYGqqckHPn?usp=sharing>`_ 
+
+
+
 Configuración
 -------------
 
